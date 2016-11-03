@@ -8,15 +8,19 @@ class Monster
   end
 
   def attack(monster)
-    damage = rand(50) - rand(25)
     monster.take_damage damage
   end
 
   def take_damage(damage)
     @hp -= damage
     if @hp < 0
-      0
+      @hp = 0
     end
     @hp
+  end
+
+  private
+  def damage
+    rand(50) - rand(25)
   end
 end

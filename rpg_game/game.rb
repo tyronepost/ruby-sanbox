@@ -15,4 +15,8 @@ while king_kong.hp > 0 and godzilla.hp > 0
   print_status king_kong, godzilla
 end
 
-
+if king_kong.hp == 0
+  puts 'Godzilla wins!!'
+else
+  puts 'King Kong wins!!'
+end
