@@ -1,15 +1,12 @@
 require_relative 'money'
 
 class Franc < Money
-  def initialize(amount)
-    @amount = amount
+
+  def initialize(amount, currency)
+    super(amount, currency)
   end
   
   def times(multiplier)
-    Franc.new(amount * multiplier)
-  end
-
-  def currency
-    "CHF"
+    Money.franc(amount * multiplier)
   end
 end
