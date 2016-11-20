@@ -1,5 +1,4 @@
-require_relative 'dollar'
-require_relative 'franc'
+require_relative 'money'
 require 'test/unit'
 
 class TestMoney < Test::Unit::TestCase
