@@ -22,6 +22,11 @@ class Money
     Money.new(amount, "CHF")
   end
 
+  def reduce(bank, to)
+    rate = bank.rate(currency, to)
+    Money.new(amount / rate, to)
+  end
+
   def ==(other)
     amount == other.amount && self.currency == other.currency
   end
