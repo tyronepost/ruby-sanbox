@@ -6,7 +6,7 @@ require 'test/unit'
 
 class TestMoney < Test::Unit::TestCase
 
-   def test_addition
+  def test_addition
     five = Money.dollar(5)
     sum = Sum.new(five, five)
     bank = Bank.new
@@ -15,6 +15,15 @@ class TestMoney < Test::Unit::TestCase
     assert_equal(ten, reduced)
   end
  
+  def test_mixed_addition
+    fiveBucks = Money.dollar(5)
+    tenFrancs = Money.franc(10)
+    bank = Bank.new
+    bank.addRate("CHF", "USD", 2)
+    result = bank.reduce(fiveBucks.plus(tenFrancs), "USD")
+    assert_equal(Money.dollar(10), result)
+  end
+   
   def test_multiplication
     five = Money.dollar(5)
     assert_equal(Money.dollar(10), five.times(2))
