@@ -1,5 +1,6 @@
 require_relative 'bank'
 require_relative 'money' 
+require_relative 'pair'
 require_relative 'sum'
 
 require 'test/unit'

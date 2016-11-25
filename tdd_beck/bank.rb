@@ -4,10 +4,10 @@ class Bank
   end
 
   def rate(from, to)
-    if from == to
-      1
-    else
+    unless from == to
       @rates[Pair.new(from, to)]
+    else
+      1
     end
   end
 
@@ -18,25 +18,5 @@ class Bank
   def addRate(from, to, rate)
     pair = Pair.new(from, to)
     @rates[pair] = rate
-  end
-end
-
-class Pair
-  attr_reader :from, :to
-  def initialize(from, to)
-    @from = from
-    @to = to
-  end
-
-  def ==(obj)
-    self.from == obj.from && self.to == obj.to
-  end
-
-  def eql?(obj)
-    self.from == obj.from && self.to == obj.to
-  end
-
-  def hash
-    [from, to].hash
   end
 end
